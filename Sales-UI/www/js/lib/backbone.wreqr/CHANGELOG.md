@@ -1,14 +1,5 @@
 # Change log
 
-### v1.4.0
-  * Align code to be able to work with lodash 4.x in addition to underscore
-
-### v1.3.7
-  * Bump version range of backbone.
-
-### v1.3.6
-  * Bump version range of backbone.
-
 ### v1.3.5
   * Bump version range of backbone.
 
@@ -17,7 +8,7 @@
 
 ### v1.3.3
   * Bump version range of backbone and underscore support.
-
+  
 ### v1.3.2
   * Increase underscore range
   * Minor underscore refactors
@@ -77,7 +68,7 @@
   * Can specify multiple arguments for `execute` method
 
 * RequestResponse
-  * Can specify multiple arguments for `request` method
+  * Can speicfy multiple arguments for `request` method
 
 ### v0.0.0
 

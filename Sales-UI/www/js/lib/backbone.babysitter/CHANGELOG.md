@@ -1,13 +1,5 @@
 # Change log
 
-### v0.1.12
-
-* Bump version range of backbone support.
-
-### v0.1.11
-
-* Bump version range of backbone support.
-
 ### v0.1.10
 
 * Bump version range of backbone support.

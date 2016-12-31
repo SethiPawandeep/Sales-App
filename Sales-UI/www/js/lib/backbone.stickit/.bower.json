@@ -39,7 +39,7 @@
     "tag": "0.9.2",
     "commit": "d18937c085356dcefc887618b8422660440b534a"
   },
-  "_source": "https://github.com/NYTimes/backbone.stickit.git",
+  "_source": "git://github.com/NYTimes/backbone.stickit.git",
   "_target": "^0.9.2",
   "_originalSource": "backbone.stickit",
   "_direct": true

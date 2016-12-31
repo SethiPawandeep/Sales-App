@@ -1,0 +1,170 @@
+body {}
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+a:visited {
+    color: blue;
+}
+
+#login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: orange;
+}
+
+#login-page .page-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    font-weight: 500;
+    margin-left: -37px;
+}
+
+::-webkit-input-placeholder {
+    color: #DDD;
+}
+
+::-moz-placeholder {
+    color: #DDD;
+}
+
+:-moz-placeholder {
+    color: #DDD
+}
+
+:-ms-input-placeholder {
+    color: #DDD;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-lines {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    padding: 2px 7px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.navbar-lines:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transition: .3s ease;
+    border: 1px solid rgba(10, 10, 250, .5);
+    cursor: pointer;
+}
+
+.nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: black;
+    overflow-x: hidden;
+    transition: 0.3s linear;
+}
+
+.nav a {
+    padding: 7px;
+    color: white;
+    font-size: 1.5em;
+    display: block;
+}
+
+
+/*
+
+.nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+*/
+
+
+/*
+
+.nav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+*/
+
+.show-at-middle {
+    height: 163px;
+    width: 271px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -135px;
+    margin-top: -81px;
+}
+
+p#new-user {
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+#username,
+#password {
+    border-radius: 0;
+    border: 0;
+    width: 271px;
+    border-bottom: 1px solid #CCC;
+    background: transparent;
+    font-size: 1.1em;
+    font-weight: 50;
+    padding: 15px;
+    color: #FFF;
+}
+
+#username:focus, #password:focus {
+    border-bottom: 1px solid #FFF;
+}
+
+#login-btn {
+    margin-top: 10px;
+    width: 271px;
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 1px solid white;
+    background: transparent;
+}
+
+#login-btn:hover {
+    transition: .3s linear;
+    background: rgba(255, 255, 255, .9);
+}

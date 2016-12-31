@@ -113,3 +113,10 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.red {
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+ background: red;
+}

@@ -1,46 +1,33 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+require.config({
+    baseUrl: 'js',
+    paths: {
+        backbone: 'lib/backbone/backbone',
+        "backbone.babysitter": 'lib/backbone.babysitter/lib/backbone.babysitter',
+        marionette: 'lib/backbone.marionette/lib/backbone.marionette',
+        //marionette: 'lib/backbone.marionette/lib/core/backbone.marionette',
+        "backbone.radio": 'lib/backbone.radio/src/backbone.radio',
+        "backbone.wreqr": 'lib/backbone.wreqr/lib/backbone.wreqr',
+        jquery: 'lib/jquery/dist/jquery',
+        tpl: 'lib/requirejs-tpl/tpl',
+        text: 'lib/text/text',
+        underscore: 'lib/underscore/underscore',
+        stickit: 'lib/backbone.stickit/backbone.stickit',
+        kendo: 'lib/kendo/js'
     },
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    tpl: {
+        templateSettings: {
+            evaluate: /\{\[([\s\S]+?)\]\}/g,
+            interpolate: /\{\{([\s\S]+?)\}\}/g,
+            escape: /\{\(([\s\S]+?)\)\}/g
+        }
     }
-};
+});
 
-app.initialize();
+require(['app', 'events/main', 'stickit'], function (App) {
+    console.log('hasdf');
+    App.start();
+    console.log('hasdf');
+
+    App.execute('headerNavShow');
+    App.execute('showLoginPage');
+});
