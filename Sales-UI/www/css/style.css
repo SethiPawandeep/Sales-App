@@ -71,7 +71,7 @@ a {
     z-index: 1;
     top: 0;
     left: 0;
-    background: black;
+    background: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
     transition: 0.3s linear;
 }
@@ -81,6 +81,8 @@ a {
     color: white;
     font-size: 1.5em;
     display: block;
+/*    position: absolute;*/
+/*    right: 0;*/
 }
 
 

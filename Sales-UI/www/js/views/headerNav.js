@@ -6,7 +6,17 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
         },
         onNavbarLinesClick: function (e) {
             console.log('Navbar Lines Clickd ' + e);
-            $('.nav').style('width', '200px');
+/*            this.trigger('showNav');
+            e.preventDefault();*/
+            $('.nav').css('width', '300px');
+            $('.navbar-lines').css('z-index', '-1');
+
+            /*
+            Doubt
+            Which one is a better practice: 
+            a. Writing the above jQuery in view file, or
+            b. Writing it in the event file?
+            */
         }
     });
 
