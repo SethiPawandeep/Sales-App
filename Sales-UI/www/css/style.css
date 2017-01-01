@@ -54,7 +54,7 @@ a {
     padding: 2px 7px 4px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .navbar-lines:hover {
@@ -74,17 +74,38 @@ a {
     background: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
     transition: 0.3s linear;
+    padding-top: 60px;
 }
 
 .nav a {
-    padding: 7px;
+    padding: 8px 8px 8px 32px;
     color: white;
     font-size: 1.5em;
     display: block;
-/*    position: absolute;*/
-/*    right: 0;*/
+    color: #818181;
+    transition: 0.3s;
 }
 
+.nav a:hover {
+    color: #FFF;
+}
+
+.nav .closeBtn {
+    position: absolute;
+    font-size: 50px;
+    right: 20px;
+    top: 0;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+/*    position: absolute;*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 10px;*/
+}
 
 /*
 

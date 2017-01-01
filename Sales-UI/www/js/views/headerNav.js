@@ -2,21 +2,23 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
     var headerNav = Marionette.ItemView.extend({
         template: tplHeaderNav,
         events: {
-            'click span.navbar-lines': 'onNavbarLinesClick'
+            'click span.navbar-lines': 'onNavbarLinesClick',
+            'click .nav a.closeBtn': 'onCloseBtnClick'
         },
         onNavbarLinesClick: function (e) {
             console.log('Navbar Lines Clickd ' + e);
 /*            this.trigger('showNav');
             e.preventDefault();*/
             $('.nav').css('width', '300px');
-            $('.navbar-lines').css('z-index', '-1');
-
             /*
             Doubt
             Which one is a better practice: 
             a. Writing the above jQuery in view file, or
             b. Writing it in the event file?
             */
+        },
+        onCloseBtnClick: function(e) {
+            $('.nav').css('width', '0');
         }
     });
 
