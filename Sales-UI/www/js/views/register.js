@@ -1,6 +1,6 @@
 define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegister) {
     var register = Marionette.ItemView.extend({
-        template: tplLogin,
+        template: tplRegister,
         bindings: {
             'input.firstName': 'firstName',
             'input.lastName': 'lastName',
@@ -15,4 +15,6 @@ define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegiste
             this.trigger('register');
         }
     });
+    
+    return register;
 });

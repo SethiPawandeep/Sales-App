@@ -10,13 +10,13 @@ define(['marionette', 'tpl!templates/login'], function (Marionette, tplLogin) {
         },
         events: {
             'click input.login': 'onLogin',
-            'click @ui.registerLink': 'onRegisterLinkClick'
+            'click @ui.registerLink': 'register'
         },
         onLogin: function (e) {
             console.log('Login clicked ' + e);
             this.trigger('login');
         },
-        onRegisterLinkClick: function(e) {
+        register: function(e) {
             console.log('Register link clicked ' + e);
             this.trigger('register');
         }

@@ -1,4 +1,4 @@
-define(['backbone', 'config', 'jquery'], function(Backbone, Config, $) {
+define(['backbone', 'config', 'jquery'], function (Backbone, Config, $) {
     var register = Backbone.Model.extend({
         defaults: {
             firstName: '',
@@ -6,18 +6,18 @@ define(['backbone', 'config', 'jquery'], function(Backbone, Config, $) {
             mobileNumber: '',
             password: ''
         },
-        findByMobileNumber: function(mobileNumber) {
+        findByMobileNumber: function (mobileNumber) {
             $.ajax({
-                url: Config.path + '/register', 
+                url: Config.path + '/register',
                 param: {
                     mobileNumber: mobileNumber
                 }
-            }).done(function(data){
+            }).done(function (data) {
                 console.log(data);
             });
         },
         url: Config.path + '/register'
     });
-    
-    return login;
+
+    return register;
 });

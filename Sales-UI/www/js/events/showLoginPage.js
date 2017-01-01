@@ -8,7 +8,9 @@ define(['app'], function(App) {
                 model: login
             }));
             loginView.listenTo(loginView, 'register', function(){
+                console.log('asdfasdfasdfasdfasdf');
                 App.execute('showRegisterPage'); 
+                console.log('asdfasdfasdfasdfasdf');
             });
   /**/
         }); 
