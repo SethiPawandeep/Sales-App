@@ -5,14 +5,17 @@ define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegiste
             'input.firstName': 'firstName',
             'input.lastName': 'lastName',
             'input.mobileNumber': 'mobileNumber',
-            'input.password': 'password'
+            'input.password-register': 'password-register'
         },
         events: {
-            'click input.register': 'onRegister'
+            'click input.register': 'register'
         },
         onRegister: function(e) {
             console.log('Register clicked ' + e);
             this.trigger('register');
+        },
+        onRender: function() {
+            this.stickit();
         }
     });
     

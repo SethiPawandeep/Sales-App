@@ -18,11 +18,18 @@ a:visited {
     background: orange;
 }
 
-#login-page .page-header {
+.page-header {
     position: absolute;
     top: 20px;
     left: 50%;
     font-weight: 500;
+}
+
+#register-page .page-header{
+    margin-left: -60px;
+}
+
+#login-page .page-header {
     margin-left: -37px;
 }
 
@@ -60,7 +67,7 @@ a {
 .navbar-lines:hover {
     background: rgba(255, 255, 255, 0.9);
     transition: .3s ease;
-    border: 1px solid rgba(10, 10, 250, .5);
+/*    border: 1px solid rgba(10, 10, 250, .5);*/
     cursor: pointer;
 }
 
@@ -102,10 +109,11 @@ a {
 }
 
 .nav ul li {
-/*    position: absolute;*/
-/*    margin-top: 10px;*/
-/*    margin-bottom: 10px;*/
+    /*    position: absolute;*/
+    /*    margin-top: 10px;*/
+    /*    margin-bottom: 10px;*/
 }
+
 
 /*
 
@@ -160,8 +168,8 @@ input:focus {
     outline: none;
 }
 
-#username,
-#password {
+.register-style,
+.login-style {
     border-radius: 0;
     border: 0;
     width: 271px;
@@ -173,11 +181,19 @@ input:focus {
     color: #FFF;
 }
 
-#username:focus, #password:focus {
+.login-style:focus {
     border-bottom: 1px solid #FFF;
 }
 
-#login-btn {
+.register-style {
+    color: #888;
+}
+
+.register-style:focus {
+    border-bottom: 1px solid #888;
+}
+
+.btn {
     margin-top: 10px;
     width: 271px;
     padding: 15px;
@@ -190,4 +206,13 @@ input:focus {
 #login-btn:hover {
     transition: .3s linear;
     background: rgba(255, 255, 255, .9);
+}
+
+#register-btn {
+    border: 1px solid #888;
+}
+
+#register-btn:hover {
+    transition: .3s linear;
+    background: #DDD;
 }

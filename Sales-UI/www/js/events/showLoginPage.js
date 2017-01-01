@@ -7,7 +7,7 @@ define(['app'], function(App) {
             App.Main.show(loginView = new Login({
                 model: login
             }));
-            loginView.listenTo(loginView, 'register', function(){
+            loginView.listenTo(loginView, 'onRegister', function(){
                 console.log('asdfasdfasdfasdfasdf');
                 App.execute('showRegisterPage'); 
                 console.log('asdfasdfasdfasdfasdf');
