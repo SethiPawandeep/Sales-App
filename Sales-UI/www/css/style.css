@@ -59,15 +59,8 @@ a {
     left: 20px;
     font-size: 1.5em;
     padding: 2px 7px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     z-index: 1;
-}
-
-.navbar-lines:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transition: .3s ease;
-/*    border: 1px solid rgba(10, 10, 250, .5);*/
     cursor: pointer;
 }
 
@@ -156,6 +149,10 @@ a {
     left: 50%;
     margin-left: -135px;
     margin-top: -81px;
+}
+
+#register-page .show-at-middle {
+    top: 40%;
 }
 
 p#new-user {
