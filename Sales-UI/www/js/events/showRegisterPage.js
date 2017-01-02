@@ -17,7 +17,7 @@ define(['app'], function (App) {
                         alert('User with the entered credentials already exists\n');
                         //User already exists
                     } else {
-                        App.execute('setUsernameAndConfirm', register);
+                        App.execute('showConfirmPage', register);
                     }
                 }).fail(function(){
                     alert('Error communication server.');

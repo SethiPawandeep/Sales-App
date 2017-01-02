@@ -9,7 +9,7 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
             console.log('Navbar Lines Clickd ' + e);
 /*            this.trigger('showNav');
             e.preventDefault();*/
-            $('.nav').css('width', '300px');
+            $('.nav').css('left', '0');
             /*
             Doubt
             Which one is a better practice: 
@@ -18,7 +18,7 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
             */
         },
         onCloseBtnClick: function(e) {
-            $('.nav').css('width', '0');
+            $('.nav').css('left', '-300px');
         }
     });
 

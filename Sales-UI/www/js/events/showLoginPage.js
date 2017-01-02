@@ -10,7 +10,7 @@ define(['app'], function(App) {
             loginView.listenTo(loginView, 'login', function() {
                 user.fetch({
                     data: {
-                        findByUsername: login.get('username');
+                        findByUsername: login.get('username')
                     } 
                 }).done(function(){
                     if(login.get('password') === user.get('password')) {

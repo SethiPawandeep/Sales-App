@@ -8,7 +8,7 @@ define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegiste
             'input.password-register': 'password-register'
         },
         events: {
-            'click input.register': 'register'
+            'click input.register': 'onRegister'
         },
         onRegister: function(e) {
             console.log('Register clicked ' + e);

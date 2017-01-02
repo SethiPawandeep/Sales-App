@@ -33,6 +33,10 @@ a:visited {
     margin-left: -37px;
 }
 
+#register-confirm-page .page-header {
+    margin-left: -99px;
+}
+
 ::-webkit-input-placeholder {
     color: #DDD;
 }
@@ -66,11 +70,11 @@ a {
 
 .nav {
     height: 100%;
-    width: 0;
+    width: 300px;
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    left: -300px;
     background: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
     transition: 0.3s linear;
@@ -205,11 +209,11 @@ input:focus {
     background: rgba(255, 255, 255, .9);
 }
 
-#register-btn {
+#register-btn, #confirm-btn {
     border: 1px solid #888;
 }
 
-#register-btn:hover {
+#register-btn:hover, #confirm-btn:hover {
     transition: .3s linear;
     background: #DDD;
 }
