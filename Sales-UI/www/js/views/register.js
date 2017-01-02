@@ -1,4 +1,4 @@
-define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegister) {
+define(['marionette', 'tpl!templates/register', 'kendo/kendo.maskedtextbox'], function(Marionette, tplRegister) {
     var register = Marionette.ItemView.extend({
         template: tplRegister,
         bindings: {
@@ -6,6 +6,9 @@ define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegiste
             'input.lastName': 'lastName',
             'input.mobileNumber': 'mobileNumber',
             'input.password-register': 'password-register'
+        },
+        ui: {
+            mobileNumber: 'input.mobileNumber'  
         },
         events: {
             'click input.register': 'onRegister'
@@ -16,6 +19,10 @@ define(['marionette', 'tpl!templates/register'], function(Marionette, tplRegiste
         },
         onRender: function() {
             this.stickit();
+            this.ui.mobileNumber.kendoMaskedTextBox({
+                mask: '(000) 000-0000',
+                clearPromptChar: true
+            });
         }
     });
     

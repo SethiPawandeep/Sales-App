@@ -2,7 +2,8 @@ define(['app'], function (App) {
     App.commands.setHandler('showRegisterPage', function () {
         require(['views/register', 'models/register', 'models/user'], function (Register, RegisterModel, UserModel) {
             var user = new UserModel(),
-                register = new RegisterModel(),
+//                register = new RegisterModel(),
+                register = new UserModel(),
                 registerView;
             App.Main.show(registerView = new Register({
                 model: register
