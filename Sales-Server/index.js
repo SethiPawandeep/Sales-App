@@ -14,11 +14,13 @@ var cn = {
 var DB = pgp(cn);
 
 var App = function() {
+    "use strict";
+    
     var self = this;
     
     self.setupVariables = function () {
         self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.port = process.env.OPENSHIFT_NODEJS_PORT || 8081;
         
         if(typeof self.ipaddress === "undefined") {
             console.log('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
@@ -39,6 +41,15 @@ var App = function() {
         return self.zcache[key];  
     };
     
+    self.terminator = function(sig) {
+        if(typeof sig === "string") {
+            console.log('%s Received %s - terminating app ...', Date(Date.now()), sig);
+            pgp.end();
+            process.exit(1);
+        } 
+        console.log('%s: Node server stopped.', Date(Date.now()));
+    };
+    
     self.setupTerminationHandlers = function() {
         process.on('exit', function(){
             self.terminator(); 
@@ -56,12 +67,19 @@ var App = function() {
     self.createRoutes = function() {
         self.routes = {};
         
+        self.routes['/'] = function(req, res) {
+            res.setHeader('Content-type', 'text/html');
+            res.send(self.cache_get('index.html'));
+        };
+        
         self.routes['/user'] = function(req, res) {
             console.log(req.body);
             DB.any('INSERT INTO USERS (first_name, last_name, username, password, mobile_number, email_id) values(firstName, lastName, username, password, mobileNumber, emailId)').then(function(data) {
                 res.json(data);
                 console.log('User written');
-            })
+            }).catch(function(e) {
+               console.log(e); 
+            });
             /*
             Handel error.
             */

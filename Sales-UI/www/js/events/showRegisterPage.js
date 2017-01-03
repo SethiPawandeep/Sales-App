@@ -24,7 +24,6 @@ define(['app'], function (App) {
                     alert('Error communication server.');
                 });
             });
-            /**/
         });
     });
 });
