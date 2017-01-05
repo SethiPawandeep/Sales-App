@@ -5,6 +5,18 @@ body {}
     font-family: sans-serif;
 }
 
+/*
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+*/
 a:visited {
     color: blue;
 }
@@ -25,7 +37,7 @@ a:visited {
     font-weight: 500;
 }
 
-#register-page .page-header{
+#register-page .page-header {
     margin-left: -60px;
 }
 
@@ -170,7 +182,8 @@ input:focus {
 }
 
 .register-style,
-.login-style {
+.login-style,
+event-style {
     border-radius: 0;
     border: 0;
     width: 271px;
@@ -186,11 +199,13 @@ input:focus {
     border-bottom: 1px solid #FFF;
 }
 
-.register-style {
+.register-style,
+.event-style {
     color: #888;
 }
 
-.register-style:focus {
+.register-style:focus,
+event-style:focus {
     border-bottom: 1px solid #888;
 }
 
@@ -209,11 +224,17 @@ input:focus {
     background: rgba(255, 255, 255, .9);
 }
 
-#register-btn, #confirm-btn {
+#register-btn,
+#confirm-btn {
     border: 1px solid #888;
 }
 
-#register-btn:hover, #confirm-btn:hover {
+textarea {
+    resize: vertical;
+}
+
+#register-btn:hover,
+#confirm-btn:hover {
     transition: .3s linear;
     background: #DDD;
 }

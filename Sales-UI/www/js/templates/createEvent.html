@@ -1,13 +1,15 @@
-<div id="register-page">
-    <h1 class="page-header">Register</h1>
+<div id="create-event">
+    <h1 class="page-header">Create your event!</h1>
     <div class="show-at-middle">
         <form class="form">
-            <input type="text" id="firstName" class="firstName register-style" placeholder="First name" required>
-            <input type="text" id="lastName" class="lastName register-style" placeholder="Last name" required>
-            <input type="email" id="userEmail" class="userEmail register-style" placeholder="Email Id" required>
-            <input type="text" id="mobileNumber" class="mobileNumber register-style" placeholder="Mobile number" required>
-            <input type="password" id="password-register" class="password-register register-style" placeholder="Password" required>
-            <input type="submit" id="register-btn" class="btn register" value="Register">
+            <input type="text" id="eventName" class="eventName event-style" placeholder="Name of your event">
+            <textarea type="text" id="eventDescription" class="eventDescription event-style" placeholder="Describe your event"></textarea>
+            <input type="text">
+            <input type="text" id="amount" class="amount event-style" placeholder="Amount">
+            <input type="text" id="comission" class="comission event-style" placeholder="Comission for seller">
+            <p>And that's just it!</p>
+            <p>Press Create and you are done with it.</p>
+            <input type="submit" id="create-event" class="btn create" value="Create">
         </form>
     </div>
 </div>
