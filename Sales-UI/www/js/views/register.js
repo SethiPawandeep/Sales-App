@@ -4,6 +4,7 @@ define(['marionette', 'tpl!templates/register', 'kendo/kendo.maskedtextbox'], fu
         bindings: {
             'input.firstName': 'firstName',
             'input.lastName': 'lastName',
+            'input.userEmail': 'userEmail',
             'input.mobileNumber': 'mobileNumber',
             'input.password-register': 'password-register'
         },

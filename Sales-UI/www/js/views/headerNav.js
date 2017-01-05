@@ -7,8 +7,8 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
         },
         onNavbarLinesClick: function (e) {
             console.log('Navbar Lines Clickd ' + e);
-/*            this.trigger('showNav');
-            e.preventDefault();*/
+            /*            this.trigger('showNav');
+                        e.preventDefault();*/
             $('.nav').css('left', '0');
             /*
             Doubt
@@ -17,7 +17,7 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
             b. Writing it in the event file?
             */
         },
-        onCloseBtnClick: function(e) {
+        onCloseBtnClick: function (e) {
             $('.nav').css('left', '-300px');
         }
     });
