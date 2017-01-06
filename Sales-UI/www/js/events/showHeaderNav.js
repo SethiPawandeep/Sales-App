@@ -7,6 +7,20 @@ define(['app'], function (App) {
                 console.log('in event ') ;
 //                $('.nav').css('width', '200px');
             });
+            headerNavView.listenTo(headerNavView, 'openHome', function() {
+                App.execute('showLoginPage'); 
+            });
+            headerNavView.listenTo(headerNavView, 'createEvent', function() {
+                console.log('create event triggered BEFORE::');
+                App.execute('showCreateEventPage');
+                console.log('create event triggered AFRER::');
+            });
+            headerNavView.listenTo(headerNavView, 'showEvents', function() {
+                App.execute('showEventList');
+            });
+            headerNavView.listenTo(headerNavView, 'showAbout', function() {
+                alert('Not implemented yet');
+            });
         });
     });
 });

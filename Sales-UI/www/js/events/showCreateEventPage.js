@@ -1,6 +1,9 @@
 define(['app'], function (App) {
-    App.commands.setHandler('createEvent', function () {
+    console.log('yahan par');
+    App.commands.setHandler('showCreateEventPage', function () {
+        console.log('yahan par')
         require(['views/createEvent', 'models/createEvent'], function (CreateEvent, CreateEventModel) {
+            console.log('in create event event');
             var event = new CreateEventModel(),
                 createEventView;
             App.Main.show(createEventView = new CreateEvent({
