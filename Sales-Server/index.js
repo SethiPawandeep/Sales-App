@@ -86,6 +86,40 @@ var App = function () {
             })
 
         };
+        
+        self.routes['/login'] = function(req, res) {
+          console.log(req.body);
+            
+            DB.any().then(function(data) {
+                
+            }).catch(function(e) {
+                
+            })
+        };
+        
+        self.routes['/events'] = function(req, res) {
+            console.log(req.body);
+            
+            DB.any('SELECT * FROM EVENTS').then(function(data) {
+                console.log('Events retrieved');
+                res.json(data);
+            }).catch(function(err) {
+                console.log(err);
+                console.log('\n\nERROR\n\n');
+            })
+        };
+        
+        self.routes['create'] = function(req, res) {
+            console.log(req.body);  
+            var event = req.body;
+            
+            DB.any('INSERT INTO EVENTS (event_name, event_description, amount, comission, username) values($1, $2 $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function(data) {
+                console.log('Event written into DB');
+                
+            }).catch(function(err) {
+                console.log('Error');
+            })
+        };
     };
 
     self.initializeServer = function () {
@@ -111,6 +145,16 @@ var App = function () {
                 console.log(err);
                 res.status(500).send(err);
             });
+        });
+        
+        self.app.post('/create', function(req, res) {
+            console.log('POST event');
+            var event = req.body;
+            DB.any('INSERT INTO EVENTS (event_name, event_descriptin, amount, comission, username values($1, $2, $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function(data) {
+                
+            }, function(err) {
+                
+            })
         });
 
         self.app.use('/ui', express.static('../Sales-UI/www/'));
