@@ -77,7 +77,7 @@ var App = function () {
             var user = req.body;
             console.log('\n\n' + user + '\n\n');
 
-            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.emailId]).then(function (data) {
+            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(data);
                 console.log('User written');
             }).catch(function (e) {
@@ -109,7 +109,7 @@ var App = function () {
             })
         };
         
-        self.routes['create'] = function(req, res) {
+        self.routes['/create'] = function(req, res) {
             console.log(req.body);  
             var event = req.body;
             
@@ -143,7 +143,7 @@ var App = function () {
                 res.json(req.body);
             }, function (err) {
                 console.log(err);
-                res.status(500).send(err);
+              console.log('\n\nERROR\n\n');  res.status(500).send(err);
             });
         });
         

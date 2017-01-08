@@ -21,7 +21,8 @@ define(['marionette', 'tpl!templates/createEvent', 'kendo/kendo.maskedTextBox'],
         onRender: function () {
             this.stickit();
             this.ui.amount.kendoMaskedTextBox({
-                mask: '₹    ' 
+                mask: '₹ 0000/-',
+                clearPromptChar: true
             });
         }
     });

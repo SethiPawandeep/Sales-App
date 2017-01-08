@@ -19,6 +19,10 @@ input[type=number] {
 
 */
 
+input:required {
+    box-shadow: none;
+}
+
 a:visited {
     color: blue;
 }

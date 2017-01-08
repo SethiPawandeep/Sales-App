@@ -6,7 +6,7 @@ define(['backbone', 'config', 'jquery'], function (Backbone, Config, $) {
             username: '',
             password: '',
             mobileNumber: '',
-            emailId: ''
+            userEmail: ''
         },
         findByMobileNumber: function () {
             $.ajax({
