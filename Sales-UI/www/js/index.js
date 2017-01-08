@@ -24,10 +24,7 @@ require.config({
 });
 
 require(['app', 'events/main', 'stickit'], function (App) {
-    console.log('hasdf');
     App.start();
-    console.log('hasdf');
-
     App.execute('showHeaderNav');
     App.execute('showLoginPage');
 });

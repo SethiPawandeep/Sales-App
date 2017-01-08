@@ -1,4 +1,4 @@
-define(['marionette', 'tpl!templates/createEvent'], function (Marionette, tplCreateEvent) {
+define(['marionette', 'tpl!templates/createEvent', 'kendo/kendo.maskedTextBox'], function (Marionette, tplCreateEvent) {
     var createEvent = Marionette.ItemView.extend({
         template: tplCreateEvent,
         bindings: {
@@ -6,6 +6,10 @@ define(['marionette', 'tpl!templates/createEvent'], function (Marionette, tplCre
             'input.eventDescription': 'eventDescription',
             'input.amount': 'amount',
             'input.comission': 'comission'
+        },
+        ui: {
+            amount: 'input.amount',
+            comission: 'input.comission'
         },
         events: {
             'click input.create': 'onCreateClick'
@@ -16,6 +20,9 @@ define(['marionette', 'tpl!templates/createEvent'], function (Marionette, tplCre
         },
         onRender: function () {
             this.stickit();
+            this.ui.amount.kendoMaskedTextBox({
+                mask: '₹    ' 
+            });
         }
     });
 

@@ -18,6 +18,7 @@ define(['marionette', 'jquery', 'tpl!templates/headerNav'], function (Marionette
         openHome: function(e) {
             this.trigger('openHome');
             $('.nav').css('left', '-300px');
+            $('.nav').scrollTop(0);
             e.preventDefault();
         },
         openCreateEventPage: function(e) {

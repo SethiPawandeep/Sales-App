@@ -4,7 +4,8 @@ define(['backbone', 'config'], function(Backbone, Config) {
             eventName: '',
             eventHost: '',
             eventAmount: '',
-            eventDescription: ''
+            eventDescription: '',
+            eventComission: ''
         }
     });
     

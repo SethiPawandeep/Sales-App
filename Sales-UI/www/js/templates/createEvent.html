@@ -2,10 +2,11 @@
     <h1 class="page-header">Create your event!</h1>
     <div class="show-at-middle">
         <form class="form">
-            <input type="text" id="eventName" class="eventName event-style" placeholder="Name of your event">
-            <textarea type="text" id="eventDescription" class="eventDescription event-style" placeholder="Describe your event"></textarea>
-            <input type="text" id="amount" class="amount event-style" placeholder="Amount">
-            <input type="text" id="comission" class="comission event-style" placeholder="Comission for seller">
+            <input type="text" id="eventName" class="eventName event-style" placeholder="Name of your event" required>
+            <textarea type="text" id="eventDescription" class="eventDescription event-style" placeholder="Describe your event" required></textarea>
+            <input type="text" id="amount" class="amount event-style" placeholder="Amount (₹)" required>
+            <input type="text" id="comission" class="comission event-style" placeholder="Comission for seller (₹)" required>
+            <input type="file" id="eventImage" class="eventImage event-style">
 <!--            <p>And that's just it!</p>-->
             <p>Press Create, and that's just it.</p>
             <input type="submit" id="create-event-btn" class="btn create" value="Create">

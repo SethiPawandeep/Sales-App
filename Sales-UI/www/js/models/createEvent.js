@@ -5,7 +5,8 @@ define(['backbone', 'config'], function (Backbone, Config) {
             eventDescription: '',
             amount: '',
             comission: '',
-            username: ''
+            username: '',
+            
         },
         url: Config.path + '/create'
     });
