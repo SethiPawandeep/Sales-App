@@ -2,17 +2,40 @@ var express = require('express');
 var fs = require('fs');
 var pgp = require('pg-promise')({});
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    /*auth: {
+        user: 'email',
+        pass: 'pass'
+    }
+    User authentication
+    */
+});
+
+var mailOptions = {
+    from: '',
+    to: '',
+    subject: 'Hello',
+    html: 'Using nodemailer'
+}
+
+transporter.sendMail(mailOptions, function (err, info) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('message sent: ' + info.response);
+    }
+});
 
 var cn = {
     host: 'localhost',
     port: 5432,
     database: 'postgres',
     user: 'postgres',
-    password: 'ips'
+    password: 'sethi'
 }
-
-var DB = pgp(cn);
-console.log(DB.connect());
 
 var App = function () {
     "use strict";
@@ -78,7 +101,7 @@ var App = function () {
             var user = req.body;
             console.log('\n\n' + user + '\n\n');
 
-            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+            DB.any('INSERT INTO US (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(data);
                 console.log('User written');
             }).catch(function (e) {
@@ -135,29 +158,30 @@ var App = function () {
                 self.app.get(r, self.routes[r]);
             }
         }
-/*
+        /*
+
+                self.app.post('/user', function (req, res) {
+                    console.log('user POST method.');
+                    console.log(req.body);
+                    var user = req.body;
+                    DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+                        res.json(req.body);
+                    }, function (err) {
+                        console.log(err);
+                        console.log('\n\nOLA HU UBER\n\n');
+                        res.status(500).send(err);
+                    });
+                });
+        */
 
         self.app.post('/user', function (req, res) {
             console.log('user POST method.');
             console.log(req.body);
             var user = req.body;
-            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+            DB.any('INSERT INTO US (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(req.body);
-            }, function (err) {
-                console.log(err);
-                console.log('\n\nOLA HU UBER\n\n');
-                res.status(500).send(err);
-            });
-        });
-*/
-
-        self.app.post('/user', function (req, res) {
-            console.log('user POST method.');
-            console.log(req.body);
-            var user = req.body;
-            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
-                res.json(req.body);
-            }).catch( function (err) {
+                console.log('User written');
+            }).catch(function (err) {
                 console.log(err);
                 console.log('\n\nOLA HU UBER\n\n');
                 res.status(500).send(err);
