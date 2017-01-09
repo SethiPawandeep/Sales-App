@@ -12,6 +12,7 @@ var cn = {
 }
 
 var DB = pgp(cn);
+console.log(DB.connect());
 
 var App = function () {
     "use strict";
@@ -86,37 +87,37 @@ var App = function () {
             })
 
         };
-        
-        self.routes['/login'] = function(req, res) {
-          console.log(req.body);
-            
-            DB.any().then(function(data) {
-                
-            }).catch(function(e) {
-                
+
+        self.routes['/login'] = function (req, res) {
+            console.log(req.body);
+
+            DB.any().then(function (data) {
+
+            }).catch(function (e) {
+
             })
         };
-        
-        self.routes['/events'] = function(req, res) {
+
+        self.routes['/events'] = function (req, res) {
             console.log(req.body);
-            
-            DB.any('SELECT * FROM EVENTS').then(function(data) {
+
+            DB.any('SELECT * FROM EVENTS').then(function (data) {
                 console.log('Events retrieved');
                 res.json(data);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.log(err);
                 console.log('\n\nERROR\n\n');
             })
         };
-        
-        self.routes['/create'] = function(req, res) {
-            console.log(req.body);  
+
+        self.routes['/create'] = function (req, res) {
+            console.log(req.body);
             var event = req.body;
-            
-            DB.any('INSERT INTO EVENTS (event_name, event_description, amount, comission, username) values($1, $2 $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function(data) {
+
+            DB.any('INSERT INTO EVENTS (event_name, event_description, amount, comission, username) values($1, $2 $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function (data) {
                 console.log('Event written into DB');
-                
-            }).catch(function(err) {
+
+            }).catch(function (err) {
                 console.log('Error');
             })
         };
@@ -134,26 +135,42 @@ var App = function () {
                 self.app.get(r, self.routes[r]);
             }
         }
+/*
 
         self.app.post('/user', function (req, res) {
             console.log('user POST method.');
             console.log(req.body);
             var user = req.body;
-            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.emailId]).then(function (data) {
+            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(req.body);
             }, function (err) {
                 console.log(err);
-              console.log('\n\nERROR\n\n');  res.status(500).send(err);
+                console.log('\n\nOLA HU UBER\n\n');
+                res.status(500).send(err);
             });
         });
-        
-        self.app.post('/create', function(req, res) {
+*/
+
+        self.app.post('/user', function (req, res) {
+            console.log('user POST method.');
+            console.log(req.body);
+            var user = req.body;
+            DB.any('INSERT INTO USER (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+                res.json(req.body);
+            }).catch( function (err) {
+                console.log(err);
+                console.log('\n\nOLA HU UBER\n\n');
+                res.status(500).send(err);
+            });
+        });
+
+        self.app.post('/create', function (req, res) {
             console.log('POST event');
             var event = req.body;
-            DB.any('INSERT INTO EVENTS (event_name, event_descriptin, amount, comission, username values($1, $2, $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function(data) {
-                
-            }, function(err) {
-                
+            DB.any('INSERT INTO EVENTS (event_name, event_descriptin, amount, comission, username values($1, $2, $3, $4, $5)', [event.eventName, event.eventDescription, event.amount, event.comission, event.username]).then(function (data) {
+
+            }, function (err) {
+
             })
         });
 
