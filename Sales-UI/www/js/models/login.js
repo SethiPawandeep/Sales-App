@@ -1,8 +1,12 @@
 define(['backbone', 'config', 'jquery'], function (Backbone, Config, $) {
     var login = Backbone.Model.extend({
         defaults: {
+            firstName: '',
+            lastName: '',
             username: '',
-            password: ''
+            password: '',
+            mobileNumber: '',
+            userEmail: ''
         },
         findByUsername: function (username) {
             $.ajax({
