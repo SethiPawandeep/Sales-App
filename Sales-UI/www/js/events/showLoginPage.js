@@ -2,7 +2,7 @@ define(['app'], function (App) {
     App.commands.setHandler('showLoginPage', function () {
         require(['views/login', 'models/login', 'models/user'], function (Login, LoginModel, UserModel) {
             var login = new LoginModel(),
-                user = new UserModel(),
+                user = new LoginModel(),
                 loginView;
             App.Main.show(loginView = new Login({
                 model: login
@@ -14,7 +14,7 @@ define(['app'], function (App) {
                     }
                 }).done(function () {
                     if (login.get('password') === user.get('password')) {
-                        //Open app home page
+                        App.execute('showHomePage');
                     } else {
                         alert('Invalid credentials');
                         /*

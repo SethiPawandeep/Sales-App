@@ -15,27 +15,29 @@ var transporter = nodemailer.createTransport({
 });
 
 var mailOptions = {
-    from: '',
-    to: '',
-    subject: 'Hello',
-    html: 'Using nodemailer'
-}
-
-transporter.sendMail(mailOptions, function (err, info) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('message sent: ' + info.response);
+        from: '',
+        to: '',
+        subject: 'Hello',
+        html: 'Using nodemailer'
     }
-});
+    /*
+    transporter.sendMail(mailOptions, function (err, info) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('message sent: ' + info.response);
+        }
+    });*/
 
 var cn = {
     host: 'localhost',
-    port: 5432,
+    port: 5000,
     database: 'postgres',
     user: 'postgres',
-    password: 'sethi'
+    password: 'ips'
 }
+
+var DB = pgp(cn);
 
 var App = function () {
     "use strict";
@@ -101,7 +103,7 @@ var App = function () {
             var user = req.body;
             console.log('\n\n' + user + '\n\n');
 
-            DB.any('INSERT INTO US (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+            DB.any('INSERT INTO USERS (first_name, last_name, username, password, mobile_number, email_id) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(data);
                 console.log('User written');
             }).catch(function (e) {
@@ -111,16 +113,34 @@ var App = function () {
 
         };
 
-        self.routes['/login'] = function (req, res) {
+       /* self.routes['/login'] = function (req, res) {
             console.log(req.body);
-
-            DB.any().then(function (data) {
-
+            var user = req.body;
+            console.log('\n\nasdfasdf\n\n');
+            DB.any('SELECT * FROM USERS WHERE username = $1', [user.username]).then(function (data) {
+                res.json(data);
+                console.log('User found.');
             }).catch(function (e) {
-
+                console.log('User does not exist');
             })
         };
-
+*/
+        self.routes['/login'] = function(req, res) {
+            if(req.query.findByUsername) {
+                console.log(req.query.findByUsername);
+                DB.one('SELECT * FROM USERS WHERE username = $1', req.query.findByUsername).then(function(data) {
+                    console.log('\n\n');
+                    console.log(data);
+                    console.log('\n\n');
+                    res.json(data);
+                }).catch(function(err) {
+                    console.log(err);
+                });
+            } else {
+                console.log('else block');
+            }
+        };
+        
         self.routes['/events'] = function (req, res) {
             console.log(req.body);
 
@@ -178,7 +198,7 @@ var App = function () {
             console.log('user POST method.');
             console.log(req.body);
             var user = req.body;
-            DB.any('INSERT INTO US (first_name, last_name, username, password, mobile_number, emailId) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
+            DB.any('INSERT INTO USERS (first_name, last_name, username, password, mobile_number, email_id) values($1, $2, $3, $4, $5, $6)', [user.firstName, user.lastName, user.username, user.password, user.mobileNumber, user.userEmail]).then(function (data) {
                 res.json(req.body);
                 console.log('User written');
             }).catch(function (err) {
