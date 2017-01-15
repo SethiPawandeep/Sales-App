@@ -235,32 +235,3 @@ textarea {
     transition: .3s linear;
     background: #DDD;
 }
-
-
-/*
-@media (max-height: 350px) {
-    #login-page {
-        height: 300px;
-    }
-    #login-page .show-at-middle {
-        top: 175px;
-    }
-}
-
-@media(max-height: 450px) {
-    #register-page {
-        height: 420px;
-    }
-    #register-page .show-at-middle {
-        top: 175px;
-    }
-}
-
-@media (max-height: 500px) {
-    #create-event-page {
-        height: 470px;
-    }
-    #create-event-page .show-at-middle {
-        top: 200px;
-    }
-}*/

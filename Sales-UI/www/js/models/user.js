@@ -3,7 +3,7 @@ define(['backbone', 'config', 'jquery'], function (Backbone, Config, $) {
         defaults: {
             firstName: '',
             lastName: '',
-            username: '',
+            username: 'asdf',
             password: '',
             mobileNumber: '',
             userEmail: ''

@@ -21,8 +21,10 @@ define(['marionette', 'tpl!templates/register', 'kendo/kendo.maskedtextbox'], fu
         onRender: function() {
             this.stickit();
             this.ui.mobileNumber.kendoMaskedTextBox({
+/*
                 mask: '(000) 000-0000',
                 clearPromptChar: true
+*/
             });
         }
     });
