@@ -27,13 +27,27 @@ a:visited {
     color: blue;
 }
 
-#login-page {
+#login-page,
+#register-page,
+#create-event-page {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+#login-page {
     background: orange;
+    min-height: 300px;
+}
+
+#register-page {
+    min-height: 420px;
+}
+
+#create-event-page {
+    min-height: 470px;
 }
 
 .page-header {
@@ -133,46 +147,6 @@ a {
     list-style: none;
 }
 
-.nav ul li {
-    /*    position: absolute;*/
-    /*    margin-top: 10px;*/
-    /*    margin-bottom: 10px;*/
-}
-
-
-/*
-
-.nav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.nav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-*/
-
-
-/*
-
-.nav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-*/
-
 .show-at-middle {
     height: 163px;
     width: 271px;
@@ -262,6 +236,8 @@ textarea {
     background: #DDD;
 }
 
+
+/*
 @media (max-height: 350px) {
     #login-page {
         height: 300px;
@@ -287,4 +263,4 @@ textarea {
     #create-event-page .show-at-middle {
         top: 200px;
     }
-}
+}*/

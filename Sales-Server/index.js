@@ -12,7 +12,7 @@ var cn = {
 }
 
 var DB = pgp(cn);
-console.log(DB.connect());
+//console.log(DB.connect());
 
 var App = function () {
     "use strict";
